@@ -24,7 +24,7 @@ RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
     'readr',\
     'reshape2',\
     'statmod',\
-    'TxDb.Hsapiens.UCSC.hg19.knownGene',\
+    'TxDb.Hsapiens.UCSC.hg19.knownGene'\
     ), ask = FALSE)"
 
 RUN Rscript -e "install.packages('devtools')" \
