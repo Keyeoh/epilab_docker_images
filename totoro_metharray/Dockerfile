@@ -2,6 +2,9 @@ FROM keyeoh/totoro_bioc
 
 MAINTAINER Gustavo F. Bayon <fernandezgustavo@uniovi.es>
 
+ENV http_proxy http://10.36.160.3:8080
+ENV https_proxy http://10.36.160.3:8080
+
 RUN apt-get install -y libcurl4-openssl-dev xorg-dev libglu1-mesa-dev \
   libxml2-dev
 
@@ -27,8 +30,9 @@ RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
     'TxDb.Hsapiens.UCSC.hg19.knownGene'\
     ), ask = FALSE)"
 
-RUN Rscript -e "install.packages('devtools')" \
-  -e "devtools:install_github('keyeoh/epilab', ref = 'totoro')"
+RUN apt-get install -y libssl-dev && \
+  Rscript -e "install.packages('devtools')" \
+    -e "devtools::install_github('keyeoh/epilab', ref = 'totoro')"
   
 # 
 # COPY epilab_0.5.2.tar.gz /
