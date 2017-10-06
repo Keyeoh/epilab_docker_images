@@ -7,54 +7,34 @@ RUN apt-get install -y libcurl4-openssl-dev xorg-dev libglu1-mesa-dev \
 
 RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
   -e "biocLite(c(\
-    'GenomicRanges'\
+    'BSgenome.Hsapiens.UCSC.hg19',\
+    'effsize',\
+    'FDb.InfiniumMethylation.hg19',\
+    'functional',\
+    'GenomicRanges',\
+    'ggplot2',\
+    'gplots',\
+    'graph',\
+    'gridExtra',\
+    'gtools',\
+    'IlluminaHumanMethylation450kmanifest',\
+    'minfi',\
+    'org.Hs.eg.db',\
+    'RBGL',\
+    'readr',\
+    'reshape2',\
+    'statmod',\
+    'TxDb.Hsapiens.UCSC.hg19.knownGene',\
     ), ask = FALSE)"
 
-
-# RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
-#   -e "biocLite('readr', ask = FALSE)"
-# 
-
-# RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
-#   -e "biocLite('minfi', ask = FALSE)"
-# RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
-#   -e "biocLite('IlluminaHumanMethylation450kmanifest', ask = FALSE)"
-# RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
-#   -e "biocLite('FDb.InfiniumMethylation.hg19', ask = FALSE)"
-# RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
-#   -e "biocLite('TxDb.Hsapiens.UCSC.hg19.knownGene', ask = FALSE)"
-# RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
-#   -e "biocLite('org.Hs.eg.db', ask = FALSE)"
-# RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
-#   -e "biocLite('statmod', ask = FALSE)"
-# RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
-#   -e "biocLite('graph', ask = FALSE)"
-# RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
-#   -e "biocLite('RBGL', ask = FALSE)"
-# RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
-#   -e "biocLite('gtools', ask = FALSE)"
-# 
-
-# 
-# RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
-#   -e "biocLite('ggplot2', ask = FALSE)"
-# RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
-#   -e "biocLite('BSgenome.Hsapiens.UCSC.hg19', ask = FALSE)"
-# RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
-#   -e "biocLite('effsize', ask = FALSE)"
-# RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
-#   -e "biocLite('functional', ask = FALSE)"
-# RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
-#   -e "biocLite('gridExtra', ask = FALSE)"
-# RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
-#   -e "biocLite('reshape2', ask = FALSE)"
+RUN Rscript -e "install.packages('devtools')" \
+  -e "devtools:install_github('keyeoh/epilab', ref = 'totoro')"
+  
 # 
 # COPY epilab_0.5.2.tar.gz /
 # RUN R CMD INSTALL epilab_0.5.2.tar.gz
 # 
 # 
-# RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
-#   -e "biocLite('gplots', ask = FALSE)"
 # RUN Rscript -e "source('http://bioconductor.org/biocLite.R')" \
 #   -e "biocLite('topGO', ask = FALSE)"  
 
